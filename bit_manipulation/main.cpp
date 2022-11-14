@@ -23,6 +23,24 @@ std::bitset<4> rotl(std::bitset<4> bits)
 	return (bits<<1) | (bits>>3);
 }
 
+void print_decimal_to_binary(int32_t dec_num)
+{
+    std::cout << "Decimal number: " << dec_num << '\n';
+
+    for(int i = 7; i >= 0; i--)
+    {
+        int bit = dec_num >> i;
+        if(bit & 1)
+        {
+            std::cout << "1";
+        }
+        else
+        {
+            std::cout << "0";
+        }
+    }
+}
+
 int main()
 {
     std::bitset<8> bits{0b0000'0101};
@@ -58,6 +76,14 @@ int main()
     myArticleFlags &= ~option_favorited;
 
     std::cout << std::bitset<8>{ myArticleFlags } << '\n';
+
+    /* Write a program that asks the user to input a number between 0 and 255. 
+    Print this number as an 8-bit binary number (of the form #### ####). */
+    std::cout << "Input a number between 0 and 255: ";
+    int32_t num {};
+    std::cin >> num;
+    std::cout << "sizeof(int32_t): " << sizeof(int32_t) << '\n';
+    print_decimal_to_binary(num);
 
     return 0;
 }
