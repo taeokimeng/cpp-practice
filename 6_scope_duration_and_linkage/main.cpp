@@ -1,7 +1,7 @@
 #include <iostream>
 #include "constants.h"
 
-using namespace std;
+// using namespace std; // Not recommended
 
 extern int g_a;
 
@@ -13,6 +13,10 @@ extern const int g_e;
 
 int main()
 {
+    using std::cout;
+    using std::cin;
+    using std::endl;
+
     cout << g_a << ' ' << g_b <<  ' ' << g_d << ' ' << g_e << endl;
 
     cout << "How many students are in your class? ";
