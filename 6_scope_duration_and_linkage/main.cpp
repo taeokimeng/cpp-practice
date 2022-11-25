@@ -11,6 +11,13 @@ extern const int g_b;
 extern int g_d;
 extern const int g_e;
 
+bool passOrFail()
+{
+    static int call = 0;
+
+    return (call++ < 3 ? true : false);
+}
+
 int main()
 {
     using std::cout;
@@ -27,6 +34,13 @@ int main()
         cout << "There are too many students in this class";
     else
         cout << "This class isn't too large";
+
+    std::cout << endl;
+    std::cout << "User #1: " << (passOrFail() ? "Pass\n" : "Fail\n");
+	std::cout << "User #2: " << (passOrFail() ? "Pass\n" : "Fail\n");
+	std::cout << "User #3: " << (passOrFail() ? "Pass\n" : "Fail\n");
+	std::cout << "User #4: " << (passOrFail() ? "Pass\n" : "Fail\n");
+	std::cout << "User #5: " << (passOrFail() ? "Pass\n" : "Fail\n");
 
     return 0;
 }
