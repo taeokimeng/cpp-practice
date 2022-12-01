@@ -1,5 +1,17 @@
 #include <iostream>
 
+int sumTo(int num)
+{
+    int sum{0};
+
+    for(int i{1}; i <= num; ++i)
+    {
+        sum += i;
+    }
+
+    return sum;
+}
+
 int main()
 {
     using std::cout;
@@ -48,6 +60,14 @@ int main()
         ++num_line;
         --outer;
     }
+
+    for(int i = 0; i <= 20; ++i)
+    {
+        if(i % 2 == 0)
+            cout << i << endl;
+    }
+
+    cout << "sumTo(5): " << sumTo(5) << endl;
 
     return 0; 
 }
