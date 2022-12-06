@@ -1,6 +1,8 @@
 #include <iostream>
 #include <limits>
 #include <random>
+#include <cassert>
+#include <cmath>
 
 int sumTo(int num)
 {
@@ -87,6 +89,22 @@ void printResult(double x, char operation, double y)
     }
 }
 
+bool isPrime(int x)
+{
+    if(x <= 1)
+        return false;
+    
+    int x_sqrt{static_cast<int>(std::sqrt(x))};
+
+    for(int i{2}; i<=x_sqrt; ++i)
+    {
+        if(x % i == 0)
+            return false;
+    }
+    
+    return true;
+}
+
 int main()
 {
     using std::cout;
@@ -168,6 +186,12 @@ int main()
 		if (count % 10 == 0)
 			std::cout << '\n';
 	}
+
+    // Prime number
+    assert(!isPrime(4));
+    assert(isPrime(5));
+
+    std::cout << "Success!\n";
 
     return 0; 
 }
