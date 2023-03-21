@@ -4,6 +4,7 @@
 #include <string> // for std::string
 #include <vector> // for std::vector
 #include <utility> // for std::pair
+#include <string_view>
 
 using VectPairSI = std::vector<std::pair<std::string, int>>; // make VectPairSI an alias for this crazy type
 
@@ -33,6 +34,19 @@ int main()
     std::cout << c << ' ' << static_cast<int>(c) << '\n';
 
     VectPairSI pairlist; // instantiate a VectPairSI variable
+
+    // Type deduction
+    auto d{5.0};
+
+    const int x { 5 };  // x has type const int
+    auto y { x };       // y will be type int (const is dropped)
+
+    const auto z { x }; // z will be type const int (const is reapplied)
+
+    using namespace std::literals; // easiest way to access the s and sv suffixes
+
+    auto s1 { "goo"s };  // "goo"s is a std::string literal, so s1 will be deduced as a std::string
+    auto s2 { "moo"sv }; // "moo"sv is a std::string_view literal, so s2 will be deduced as a std::string_view
 
     return 0;
 }
