@@ -21,6 +21,12 @@ T max(T x, T y)
     return (x < y) ? y : x;
 }
 
+template <typename T, typename U>
+auto max(T x, U y)
+{
+    return (x < y) ? y : x;
+}
+
 int main()
 {
     int i{2};
@@ -61,5 +67,10 @@ int main()
     std::cout << addOne(1) << '\n';
     std::cout << addOne(2.3) << '\n';
 
+    std::cout << max(static_cast<double>(2), 3.5) << '\n'; // convert our int to a double so we can call max(double, double)
+    std::cout << max<double>(2, 3.5) << '\n'; // we've provided actual type double, so the compiler won't use template argument deduction
+
+    std::cout << max(2, 3.5) << '\n';
+    
     return 0;
 }
