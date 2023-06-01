@@ -39,6 +39,14 @@ int main()
     std::cout << isSmall(int) << '\n'; // true
     std::cout << isSmall(double) << '\n'; // true
     std::cout << isSmall(S) << '\n'; // false
-    
+
+    int* n_ptr {}; // null pointer
+    int* null_ptr {nullptr}; // null pointer
+
+    const int c_x{5};
+    const int* ptr2c{&x}; // pointer to a "const int"
+    int* const c_ptr { &x }; // const pointer
+    const int* const ptr { &x }; // a const pointer to a const value
+
     return 0;
 }
