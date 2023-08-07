@@ -63,6 +63,16 @@ void nullify(int*& refptr) // refptr is now a reference to a pointer
     refptr = nullptr; // Make the function parameter a null pointer
 }
 
+const std::string& firstAlphabetical(const std::string& a, const std::string& b)
+{
+    return (a < b) ? a : b;
+}
+
+int& max(int& x, int& y)
+{
+    return (x > y) ? x : y;
+}
+
 int main()
 {
     int x { 5 };
@@ -110,6 +120,18 @@ int main()
     print(ptr); // calls print(int*)
     ptr = nullptr;
     print(ptr); // calls print(int*) (since ptr has type int*)
+
+    std::string hello {"Hello"};
+    std::string world {"World"};
+
+    std::cout << firstAlphabetical(hello, world) << '\n';
+
+    int a{5};
+    int b{6};
+
+    max(a, b) = 7;
+
+    std::cout << a << b << '\n';
 
     return 0;
 }
